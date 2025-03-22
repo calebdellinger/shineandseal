@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Snohomish",
+    "url": "/Snohomish"
+  },
+  {
+    "id": 2,
+    "title": "Woodinville",
+    "url": "/Woodinville"
+  },
+  {
+    "id": 3,
+    "title": "Issaquah",
+    "url": "/Issaquah"
+  },
+  {
+    "id": 4,
+    "title": "Bellevue",
+    "url": "/Bellevue"
+  },
+  {
+    "id": 5,
+    "title": "Seattle",
+    "url": "/Seattle"
+  },
+  {
+    "id": 6,
+    "title": "Redmond",
+    "url": "/Redmond"
+  },
+  {
+    "id": 7,
+    "title": "Kirkland",
+    "url": "/Kirkland"
+  },
+  {
+    "id": 8,
+    "title": "Bothell",
+    "url": "/Bothell"
+  },
+  {
+    "id": 9,
+    "Title": "Lake Stevens",
+    "url": "/Lake Stevens"
+  },
+  {
+    "id": 10,
+    "title": "Mulkiteo",
+    "url": "/Mulkiteo"
+  }
+]
