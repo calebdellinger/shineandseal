@@ -92,6 +92,14 @@ export default function Contact() {
       const form = e.currentTarget;
       const formData = new FormData(form);
       
+      // Check for honeypot field
+      const botField = formData.get('bot-field');
+      if (botField) {
+        // This is a bot, don't submit
+        console.log('Bot detected, form not submitted');
+        return;
+      }
+
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -205,6 +213,13 @@ export default function Contact() {
                 className="space-y-4 sm:space-y-6"
               >
                 <input type="hidden" name="form-name" value="contact" />
+                
+                {/* Honeypot field to prevent spam */}
+                <div className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="fullName" className="block text-sm font-semibold text-gray-700">

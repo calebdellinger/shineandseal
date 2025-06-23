@@ -185,16 +185,35 @@ export default function Gallery() {
         const response = await fetch('/api/gallery');
         
         if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+          // Try to parse error response as JSON, but handle HTML responses gracefully
+          let errorMessage = `HTTP error! status: ${response.status}`;
+          try {
+            const errorData = await response.json();
+            errorMessage = errorData.error || errorMessage;
+          } catch (parseError) {
+            // If response is not JSON (like HTML), use fallback
+            console.warn('API returned non-JSON response, using fallback images');
+            setImages(fallbackImages);
+            setLoading(false);
+            return;
+          }
+          throw new Error(errorMessage);
         }
         
         const galleryImages: SmugMugImage[] = await response.json();
         const filteredImages = galleryImages.filter(image => !image.IsVideo);
-        setImages(filteredImages);
+        
+        if (filteredImages.length === 0) {
+          console.warn('No images returned from API, using fallback images');
+          setImages(fallbackImages);
+        } else {
+          setImages(filteredImages);
+        }
       } catch (error) {
         console.error("Error loading gallery images:", error);
         setError("Failed to load gallery images. Please try again later.");
+        // Use fallback images when API fails
+        setImages(fallbackImages);
       } finally {
         setLoading(false);
       }

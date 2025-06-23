@@ -6,9 +6,22 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Form handling
+[forms]
+  # Enable form detection
+  [forms.handling]
+    # Redirect to thank you page after form submission
+    success_url = "/thank-you/"
+
+# API routes redirect to Netlify functions
+[[redirects]]
+  from = "/api/gallery"
+  to = "/.netlify/functions/api-gallery"
+  status = 200
+
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  to = "/.netlify/functions/api-:splat"
   status = 200
 
 [[headers]]

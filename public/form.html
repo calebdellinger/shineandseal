@@ -7,14 +7,22 @@
 <body>
     <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
+        
+        <!-- Honeypot field to prevent spam -->
+        <div style="display: none;">
+            <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+        </div>
+        
         <p>
-            <label>Full Name: <input type="text" name="fullName" /></label>
+            <label>Full Name: <input type="text" name="fullName" required /></label>
         </p>
         <p>
-            <label>Email: <input type="email" name="email" /></label>
+            <label>Email: <input type="email" name="email" required /></label>
         </p>
         <p>
-            <label>Project Details: <textarea name="description"></textarea></label>
+            <label>Project Details: <textarea name="description" required></textarea></label>
         </p>
         <p>
             <button type="submit">Send</button>
