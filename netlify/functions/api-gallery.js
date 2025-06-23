@@ -1,6 +1,9 @@
 const fetch = require('node-fetch');
 
 exports.handler = async function(event, context) {
+  // Set a timeout to prevent hanging
+  context.callbackWaitsForEmptyEventLoop = false;
+  
   console.log('=== Gallery Function Called ===');
   console.log('Event:', JSON.stringify(event, null, 2));
   console.log('Context:', JSON.stringify(context, null, 2));
@@ -48,12 +51,19 @@ exports.handler = async function(event, context) {
     
     console.log('Making request to SmugMug API:', imagesUrl);
     
+    // Add timeout to the fetch request
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    
     const imagesResponse = await fetch(imagesUrl, {
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'Shine-Seal-Website/1.0'
       },
+      signal: controller.signal
     });
+    
+    clearTimeout(timeoutId);
 
     console.log('SmugMug API response status:', imagesResponse.status);
     console.log('SmugMug API response headers:', Object.fromEntries(imagesResponse.headers.entries()));
@@ -154,6 +164,18 @@ exports.handler = async function(event, context) {
       stack: error.stack,
       name: error.name
     });
+    
+    // Check if it's a timeout error
+    if (error.name === 'AbortError') {
+      return {
+        statusCode: 408,
+        headers,
+        body: JSON.stringify({
+          error: 'Request timeout - SmugMug API took too long to respond',
+          timestamp: new Date().toISOString()
+        })
+      };
+    }
     
     return {
       statusCode: 500,
