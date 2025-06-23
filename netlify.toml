@@ -13,15 +13,29 @@
     # Redirect to thank you page after form submission
     success_url = "/thank-you/"
 
-# API routes redirect to Netlify functions
+# API routes redirect to Netlify functions - these must come BEFORE the catch-all
 [[redirects]]
   from = "/api/gallery"
   to = "/.netlify/functions/api-gallery"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/api-:splat"
+  status = 200
+  force = true
+
+# Handle form submissions
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+
+# Catch-all redirect for SPA - this must come LAST
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200
 
 [[headers]]
@@ -93,16 +107,4 @@
 [[headers]]
   for = "/*.woff2"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Form handling
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-# Handle form submissions
-[[redirects]]
-  from = "/contact"
-  to = "/contact/"
-  status = 301 
+    Cache-Control = "public, max-age=31536000, immutable" 
