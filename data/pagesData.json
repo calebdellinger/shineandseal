@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Snohomish",
+    "url": "/Snohomish",
+    "description": "Professional pressure washing services in historic Snohomish, WA. Specializing in residential and commercial exterior cleaning, including Victorian-era homes, farmhouses, and downtown storefronts. Our expert pressure washing removes moss, algae, and grime while preserving your property's historic charm."
+  },
+  {
+    "id": 2,
+    "title": "Woodinville",
+    "url": "/Woodinville",
+    "description": "Premium pressure washing solutions for Woodinville's wine country estates and residential properties. We provide specialized cleaning for wineries, tasting rooms, patios, and luxury homes. Our eco-friendly pressure washing services protect your property while maintaining its pristine appearance."
+  },
+  {
+    "id": 3,
+    "title": "Bellevue",
+    "url": "/Bellevue",
+    "description": "High-end pressure washing services for Bellevue's luxury homes and commercial properties. From downtown high-rises to waterfront estates, we deliver superior cleaning results. Specialized in concrete cleaning, building exterior washing, and premium residential services."
+  },
+  {
+    "id": 4,
+    "title": "Seattle",
+    "url": "/Seattle",
+    "description": "Comprehensive pressure washing services throughout Seattle, from Capitol Hill to West Seattle. Expert cleaning for urban homes, condos, and commercial buildings. We tackle city grime, graffiti removal, and restore surfaces to their original beauty while using environmentally conscious methods."
+  },
+  {
+    "id": 5,
+    "title": "Kirkland",
+    "url": "/Kirkland",
+    "description": "Premier pressure washing services for Kirkland's waterfront properties and urban homes. Expert cleaning of lakeside decks, patios, and walkways. We specialize in salt-water damage prevention and restoration for both residential and commercial properties."
+  },
+  {
+    "id": 6,
+    "title": "Lake Stevens",
+    "url": "/LakeStevens",
+    "description": "Professional pressure washing services for Lake Stevens waterfront properties and residential areas. We excel in dock cleaning, lakeside deck restoration, and complete exterior home washing. Our treatments prevent water damage while maintaining your property's appeal."
+  }
+]

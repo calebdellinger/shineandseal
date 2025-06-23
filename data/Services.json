@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Power Washing",
+    "description": "Description of Service 1"
+  },
+  {
+    "id": 2,
+    "title": "Roof Cleaning",
+    "description": "Description of Service 2"
+  },
+  {
+    "id": 3,
+    "title": "Concrete Sealing",
+    "description": "Description of Service 3"
+  }
+]
